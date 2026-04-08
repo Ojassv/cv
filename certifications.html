@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ojasvi Shelar — Certifications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #1b4332;
+    --accent-mid: #40916c;
+    --accent-light: #d8f3dc;
+    --bg: #f4f1ec;
+    --surface: #ffffff;
+    --border: #e0dbd2;
+    --text-primary: #1a1814;
+    --text-secondary: #4a4540;
+    --text-muted: #9b958d;
+    --tag-bg: #edf6f0;
+    --tag-border: #c7e6d0;
+    --tag-text: #1b4332;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --serif: 'Fraunces', serif;
+  }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease both;
+  }
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .back-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    background: var(--accent-light);
+    border: 1px solid #b7e4c7;
+    border-radius: 4px;
+    padding: 5px 11px;
+    transition: background 0.15s;
+  }
+  .back-link:hover { background: #b7e4c7; }
+  .page-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .page-subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cert-card:hover { border-color: var(--accent-mid); transform: translateY(-2px); }
+
+  .cert-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Placeholder shown when no image is set */
+  .cert-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: #f0ece6;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-muted);
+  }
+  .cert-image-placeholder .placeholder-icon {
+    font-size: 28px;
+    opacity: 0.4;
+  }
+  .cert-image-placeholder .placeholder-text {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .cert-body { padding: 1rem 1.1rem; }
+  .cert-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 4px;
+  }
+  .cert-title { font-size: 13.5px; font-weight: 500; color: var(--text-primary); }
+  .cert-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    background: #f4f1ec;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cert-issuer { font-size: 12px; color: var(--accent-mid); font-family: var(--mono); font-weight: 500; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tag {
+    font-size: 10px;
+    font-family: var(--mono);
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid var(--tag-border);
+  }
+
+  .back-bottom {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 560px) {
+    .cert-grid { grid-template-columns: 1fr; }
+    .top-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-bar">
+    <div>
+      <div class="page-title">Certifications</div>
+      <div class="page-subtitle">Ojasvi Shelar · Data Engineer</div>
+    </div>
+    <a href="index.html" class="back-link">← Back to CV</a>
+  </div>
+
+    <div class="section-label">Databricks</div>
+    <div class="cert-grid">
+  
+      <!--
+        HOW TO ADD A CERTIFICATION:
+        1. Copy one <div class="cert-card"> block
+        2. Replace the <div class="cert-image-placeholder"> with:
+           <img src="your-cert.jpg" alt="Cert name" class="cert-image" />
+        3. Update the title, issuer, date, and tags
+      -->
+  
+      <div class="cert-card">
+        <!--
+          Replace this placeholder with your cert image:
+          <img src="databricks-cert.jpg" alt="Databricks certification" class="cert-image" />
+        -->
+        <img src="Introduction to Apache Spark Databricks.jpg" alt="Introduction to Apache Spark Databricks" class="cert-image" />
+        <div class="cert-body">
+          <div class="cert-top">
+            <div class="cert-title">Introduction to Apache Spark Databricks</div>
+            <div class="cert-date">2025</div>
+          </div>
+          <div class="cert-issuer">Databricks</div>
+          <div class="tags">
+            <span class="tag">Databricks</span>
+            <span class="tag">PySpark</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cert-card">
+        <!--
+          Replace this placeholder with your cert image:
+          <img src="databricks-cert.jpg" alt="Databricks certification" class="cert-image" />
+        -->
+        <img src="Data Engineering SQL Analytics and BI.jpg" alt="Data Engineering SQL Analytics and BI" class="cert-image" />
+        <div class="cert-body">
+          <div class="cert-top">
+            <div class="cert-title">Data Engineering SQL Analytics and BI</div>
+            <div class="cert-date">2025</div>
+          </div>
+          <div class="cert-issuer">Databricks</div>
+          <div class="tags">
+            <span class="tag">Databricks</span>
+            <span class="tag">PySpark</span>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Add more sections below as needed, e.g.: -->
+    <!--
+    <div class="section-label">Other</div>
+    <div class="cert-grid">
+      <div class="cert-card"> ... </div>
+    </div>
+    -->
+  
+  </div>
+  </body>
+  </html>
